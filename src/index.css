@@ -5,9 +5,45 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --primary-color: rgb(79 70 229);
+    --gray-500: #6b7280;
+}
+
+.link {
+    color: black;
+}
+
+.link--decor-none {
+    text-decoration: none;
+}
+
+.link--primary-color {
+    color: var(--primary-color);
+}
+
+.button {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.button--primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.button--secondary {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }

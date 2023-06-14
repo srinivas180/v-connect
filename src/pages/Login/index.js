@@ -1,26 +1,55 @@
+import "./index.css";
+
 export function Login() {
     return (
-        <div>
-            <h2>Login</h2>
-            <form>
-                <label>
-                    <span>Username</span>
-                    <input type="text" placeholder="Enter username" required />
-                </label>
-                <label>
-                    <span>Password</span>
-                    <input type="password" placeholder="Password" required />
-                </label>
-                <div>
-                    <label>
-                        <input type="checkbox" />
-                        <span>Remember me</span>
-                    </label>
-                    <a href="/">Forgot your password?</a>
-                </div>
-                <button type="submit">Login</button>
-            </form>
-            <a href="/signup">Create New Account</a>
+        <div className="login-container">
+            <div className="login">
+                <h2 className="login__title">Login</h2>
+                <form className="form">
+                    <div className="form__field">
+                        <label for="username" className="form__label">
+                            Username
+                        </label>
+                        <input
+                            name="username"
+                            type="text"
+                            required
+                            className="form__input"
+                        />
+                    </div>
+
+                    <div className="form__field">
+                        <div className="form__label">
+                            <label for="password">Password</label>
+                            <a
+                                href="/"
+                                className="link link--decor-none link--primary-color"
+                            >
+                                Forgot your password?
+                            </a>
+                        </div>
+
+                        <input
+                            name="password"
+                            type="password"
+                            required
+                            className="form__input"
+                        />
+                    </div>
+                    <button type="submit" className="button button--primary">
+                        Login
+                    </button>
+                </form>
+                <p className="new-account">
+                    <span className="new-account__text">Not a member? </span>
+                    <a
+                        href="/signup"
+                        className="new-account__link link link--decor-none link--primary-color"
+                    >
+                        Create New Account
+                    </a>
+                </p>
+            </div>
         </div>
     );
 }

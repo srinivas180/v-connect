@@ -6,8 +6,8 @@ import { useContext } from "react";
 export function Login() {
     const { loginHandler } = useContext(AuthContext);
     return (
-        <div className="login">
-            <h2 className="login__title">Login</h2>
+        <div className="form-container">
+            <h2 className="form-container__title">Login</h2>
             <form className="form">
                 <div className="form__field">
                     <label for="username" className="form__label">

@@ -56,11 +56,11 @@ export function Login() {
             >
                 Login as Guest
             </button>
-            <p className="new-account">
-                <span className="new-account__text">Not a member? </span>
+            <p className="form-footer">
+                <span className="form-footer__text">Not a member? </span>
                 <a
                     href="/signup"
-                    className="new-account__link link link--decor-none link--primary-color"
+                    className="form-footer__link link link--decor-none link--primary-color"
                 >
                     Create New Account
                 </a>

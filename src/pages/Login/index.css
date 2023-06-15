@@ -43,13 +43,13 @@
     margin-top: 12px;
 }
 
-.new-account {
+.form-footer {
     text-align: center;
     margin-top: 40px;
     color: var(--gray-500);
     font-size: 14px;
 }
 
-.new-account__link {
+.form-footer__link {
     font-weight: 500;
 }

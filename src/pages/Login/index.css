@@ -44,6 +44,10 @@
     border: 2px solid #d0d0d0;
 }
 
+.login__guest {
+    margin-top: 12px;
+}
+
 .new-account {
     text-align: center;
     margin-top: 40px;

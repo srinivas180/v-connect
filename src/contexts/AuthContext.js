@@ -3,8 +3,10 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [encodedToken, setEncodedToken] = useState();
-    const [user, setUser] = useState();
+    const [encodedToken, setEncodedToken] = useState(
+        localStorage.getItem("encodedToken")
+    );
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
     const loginHandler = async (userCredentials) => {
         const response = await fetch("/api/auth/login", {
@@ -16,6 +18,9 @@ export function AuthProvider({ children }) {
 
         setEncodedToken(encodedToken);
         setUser(foundUser);
+
+        localStorage.setItem("encodedToken", encodedToken);
+        localStorage.setItem("user", JSON.stringify(foundUser));
     };
 
     return (

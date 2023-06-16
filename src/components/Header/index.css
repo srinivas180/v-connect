@@ -26,8 +26,10 @@
 }
 
 .nav__link {
+    border-radius: 12px;
     padding: 8px;
     margin: 8px;
+    width: fit-content;
 }
 
 .nav__link:hover {

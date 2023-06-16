@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ loginHandler }}>
+        <AuthContext.Provider value={{ encodedToken, user, loginHandler }}>
             {children}
         </AuthContext.Provider>
     );

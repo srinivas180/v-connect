@@ -47,8 +47,8 @@ export function Login() {
                 className="button button--text-only login__guest"
                 onClick={() => {
                     const userCredentials = {
-                        username: "adarshbalika",
-                        password: "adarshBalika123",
+                        username: "satyachandra",
+                        password: "satyachandra",
                     };
 
                     loginHandler(userCredentials);

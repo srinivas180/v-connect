@@ -29,7 +29,7 @@ export const users = [
         password: "stephenhawking",
         bio: "physicist & cosmologist,",
         profileImageURL:
-            "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/tomcruise_r8drdm.jpg",
+            "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         following: [],

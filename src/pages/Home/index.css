@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    gap: 20px;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.posts {
+    flex-grow: 1;
+    width: 53%;
+    margin-right: 20px;
+}
+
+.heading {
+    margin-top: 0;
+}
+
+.suggestions__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.suggestions__avatar {
+    width: 50px;
+    border-radius: 28px;
+}
+
+.suggestions__user p {
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.suggestions__follow-btn {
+    padding: 4px 16px;
+}

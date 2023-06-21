@@ -20,6 +20,12 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 16px;
+    justify-content: space-between;
+}
+
+.avatar-and-name {
+    display: flex;
+    gap: 12px;
 }
 
 .suggestions__avatar {

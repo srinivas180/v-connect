@@ -15,12 +15,20 @@ export function UsersProvider({ children }) {
         }
     };
 
+    const getNonFollowingUsers = (user) => {
+        return users?.filter(
+            ({ username }) =>
+                !user.following.includes(username) &&
+                !(user.username === username)
+        );
+    };
+
     useEffect(() => {
         fetchUsers();
     }, []);
 
     return (
-        <UsersContext.Provider value={{ users }}>
+        <UsersContext.Provider value={{ users, getNonFollowingUsers }}>
             {children}
         </UsersContext.Provider>
     );

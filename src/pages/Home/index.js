@@ -5,10 +5,12 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Header } from "../../components/Header";
 import { Post } from "../../components/Post";
 import "./index.css";
+import { UsersContext } from "../../contexts/UsersContext";
 
 export function Home() {
     const { posts } = useContext(PostsContext);
     const { loggedInUser } = useContext(AuthContext);
+    const { getNonFollowingUsers } = useContext(UsersContext);
 
     return (
         <div className="container">
@@ -33,32 +35,23 @@ export function Home() {
                 <div className="suggestions">
                     <h3 className="suggestions__title"> Who to follow</h3>
                     <div className="suggestions_list">
-                        <div className="suggestions__item">
-                            <img
-                                className="suggestions__avatar"
-                                src="https://res.cloudinary.com/dt6nk7xus/image/upload/v1687152698/v-connect/profile-images/23_ghzzzi.jpg"
-                            />
-                            <div className="suggestions__user">
-                                <p>Satya Chandra</p>
-                                <p>@satya</p>
+                        {getNonFollowingUsers(loggedInUser)?.map((user) => (
+                            <div className="suggestions__item">
+                                <div className="avatar-and-name">
+                                    <img
+                                        className="suggestions__avatar"
+                                        src={user.profileImageURL}
+                                    />
+                                    <div className="suggestions__user">
+                                        <p>{user.firstName}</p>
+                                        <p>@{user.username}</p>
+                                    </div>
+                                </div>
+                                <button className="suggestions__follow-btn button button--secondary">
+                                    Follow
+                                </button>
                             </div>
-                            <button className="suggestions__follow-btn button button--secondary">
-                                Follow
-                            </button>
-                        </div>
-                        <div className="suggestions__item">
-                            <img
-                                className="suggestions__avatar"
-                                src="https://res.cloudinary.com/dt6nk7xus/image/upload/v1687152698/v-connect/profile-images/23_ghzzzi.jpg"
-                            />
-                            <div className="suggestions__user">
-                                <p>Satya Chandra</p>
-                                <p>@satya</p>
-                            </div>
-                            <button className="suggestions__follow-btn button button--secondary">
-                                Follow
-                            </button>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

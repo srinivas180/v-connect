@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { PostsContext } from "../../contexts/PostsContext";
+import { BookmarksContext } from "../../contexts/BookmarksContext";
 
+import { PostsContext } from "../../contexts/PostsContext";
 import { UsersContext } from "../../contexts/UsersContext";
 import "./index.css";
 
 export function Post({ post }) {
     const { users } = useContext(UsersContext);
     const { likePost, isLiked } = useContext(PostsContext);
+    const { bookmarkPost, isBookmarked } = useContext(BookmarksContext);
 
     const user = users.find(({ username }) => username === post.username);
 
@@ -38,12 +40,26 @@ export function Post({ post }) {
                             }}
                             className="post__like"
                         >
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i className="fa fa-heart-o" aria-hidden="true"></i>
                         </span>
                     )}
-                    <span className="post__bookmark">
-                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    </span>
+                    {isBookmarked(post._id) ? (
+                        <span className="post__bookmark">
+                            <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        </span>
+                    ) : (
+                        <span
+                            className="post__bookmark"
+                            onClick={() => {
+                                bookmarkPost(post._id);
+                            }}
+                        >
+                            <i
+                                className="fa fa-bookmark-o"
+                                aria-hidden="true"
+                            ></i>
+                        </span>
+                    )}
                 </div>
             </div>
         </div>

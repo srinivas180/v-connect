@@ -53,7 +53,7 @@ export const users = [
     },
     {
         _id: uuid(),
-        firstName: "batman",
+        firstName: "Batman",
         lastName: "",
         username: "batman",
         password: "batman",

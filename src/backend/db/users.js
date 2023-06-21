@@ -17,8 +17,8 @@ export const users = [
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687152698/v-connect/profile-images/23_ghzzzi.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
-        following: [],
-        followers: [],
+        following: ["tomcruise"],
+        followers: ["tomcruise"],
         bookmarks: [],
     },
     {

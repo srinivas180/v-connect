@@ -1,22 +1,22 @@
+import { useContext } from "react";
+
+import { UsersContext } from "../../contexts/UsersContext";
 import "./index.css";
 
 export function Post({ post }) {
+    const { users } = useContext(UsersContext);
+    const user = users.find(({ username }) => username === post.username);
+
     return (
         <div className="post">
             <div>
-                <img
-                    className="post__profile-img"
-                    src="https://picsum.photos/id/100/150"
-                />
+                <img className="post__profile-img" src={user.profileImageURL} />
             </div>
             <div className="post__container">
-                <p className="post__name">Satya</p>
-                <p className="post__content">Clita tincidunt ut.</p>
+                <p className="post__name">{user.firstName}</p>
+                <p className="post__content">{post.content}</p>
                 <div>
-                    <img
-                        className="post__image"
-                        src="https://res.cloudinary.com/dt6nk7xus/image/upload/v1687154650/v-connect/posts-images/lon--george-monstera-deliciosa_p7shzo.webp"
-                    />
+                    <img className="post__image" src={post.imageURL} />
                 </div>
             </div>
         </div>

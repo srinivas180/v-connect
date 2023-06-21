@@ -6,7 +6,9 @@ export function AuthProvider({ children }) {
     const [encodedToken, setEncodedToken] = useState(
         localStorage.getItem("encodedToken")
     );
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+    const [loggedInUser, setLoggedInUser] = useState(
+        JSON.parse(localStorage.getItem("user"))
+    );
 
     const loginHandler = async (userCredentials) => {
         const response = await fetch("/api/auth/login", {
@@ -17,14 +19,16 @@ export function AuthProvider({ children }) {
         const { encodedToken, foundUser } = await response.json();
 
         setEncodedToken(encodedToken);
-        setUser(foundUser);
+        setLoggedInUser(foundUser);
 
         localStorage.setItem("encodedToken", encodedToken);
         localStorage.setItem("user", JSON.stringify(foundUser));
     };
 
     return (
-        <AuthContext.Provider value={{ encodedToken, user, loginHandler }}>
+        <AuthContext.Provider
+            value={{ encodedToken, loggedInUser, loginHandler }}
+        >
             {children}
         </AuthContext.Provider>
     );

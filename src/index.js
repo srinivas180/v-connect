@@ -7,6 +7,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { AuthProvider } from "./contexts/AuthContext";
 import { PostsProvider } from "./contexts/PostsContext";
+import { UsersProvider } from "./contexts/UsersContext";
 
 // Call make Server
 makeServer();
@@ -16,9 +17,11 @@ root.render(
     <React.StrictMode>
         <Router>
             <AuthProvider>
-                <PostsProvider>
-                    <App />
-                </PostsProvider>
+                <UsersProvider>
+                    <PostsProvider>
+                        <App />
+                    </PostsProvider>
+                </UsersProvider>
             </AuthProvider>
         </Router>
     </React.StrictMode>

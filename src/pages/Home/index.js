@@ -1,17 +1,32 @@
-import { posts } from "../../backend/db/posts";
+import { useContext } from "react";
+
+import { PostsContext } from "../../contexts/PostsContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { Header } from "../../components/Header";
 import { Post } from "../../components/Post";
 import "./index.css";
 
 export function Home() {
+    const { posts } = useContext(PostsContext);
+    const { loggedInUser } = useContext(AuthContext);
+
     return (
         <div className="container">
             <Header />
             <div className="posts">
                 <h2 className="heading">Home</h2>
-                {posts.map((post) => (
-                    <Post post={post} />
-                ))}
+                {posts
+                    ?.filter(({ username }) => {
+                        // filter and then show logged in user and
+                        // following users posts
+                        return (
+                            loggedInUser.username === username ||
+                            loggedInUser.following.includes(username)
+                        );
+                    })
+                    .map((post) => (
+                        <Post post={post} />
+                    ))}
             </div>
             <div>
                 <input type="search" placeholder="Search for users" />

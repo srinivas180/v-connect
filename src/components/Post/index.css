@@ -23,3 +23,17 @@
     width: 100%;
     border-radius: 12px;
 }
+
+.post__options {
+    display: flex;
+    gap: 16px;
+    font-size: 18px;
+    margin-top: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.post__like,
+.post__bookmark {
+    cursor: pointer;
+}

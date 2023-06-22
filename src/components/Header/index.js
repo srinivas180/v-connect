@@ -14,7 +14,10 @@ export function Header() {
                 <NavLink to="/" className="nav__link link link--decor-none">
                     Home
                 </NavLink>
-                <NavLink className="nav__link link link--decor-none">
+                <NavLink
+                    to="/explore"
+                    className="nav__link link link--decor-none"
+                >
                     Explore
                 </NavLink>
                 <NavLink

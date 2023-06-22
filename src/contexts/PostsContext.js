@@ -41,12 +41,29 @@ export function PostsProvider({ children }) {
         );
     };
 
+    const removeLike = async (postId) => {
+        const response = await fetch(`/api/posts/dislike/${postId}`, {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: {},
+        });
+
+        console.log(response);
+
+        if (response.status === 201) {
+            const json = await response.json();
+
+            console.log(json.posts);
+            setPosts(json.posts);
+        }
+    };
+
     useEffect(() => {
         getPosts();
     }, []);
 
     return (
-        <PostsContext.Provider value={{ posts, likePost, isLiked }}>
+        <PostsContext.Provider value={{ posts, likePost, isLiked, removeLike }}>
             {children}
         </PostsContext.Provider>
     );

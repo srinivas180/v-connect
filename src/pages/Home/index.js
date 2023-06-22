@@ -27,7 +27,7 @@ export function Home() {
                         );
                     })
                     .map((post) => (
-                        <Post post={post} />
+                        <Post key={post._id} post={post} />
                     ))}
             </div>
             <div>
@@ -36,7 +36,7 @@ export function Home() {
                     <h3 className="suggestions__title"> Who to follow</h3>
                     <div className="suggestions_list">
                         {getNonFollowingUsers(loggedInUser)?.map((user) => (
-                            <div className="suggestions__item">
+                            <div key={user._id} className="suggestions__item">
                                 <div className="avatar-and-name">
                                     <img
                                         className="suggestions__avatar"

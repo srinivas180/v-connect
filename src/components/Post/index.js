@@ -7,7 +7,7 @@ import "./index.css";
 
 export function Post({ post }) {
     const { users } = useContext(UsersContext);
-    const { likePost, isLiked } = useContext(PostsContext);
+    const { likePost, isLiked, removeLike } = useContext(PostsContext);
     const { bookmarkPost, isBookmarked } = useContext(BookmarksContext);
 
     const user = users.find(({ username }) => username === post.username);
@@ -27,11 +27,11 @@ export function Post({ post }) {
                     {isLiked(post) ? (
                         <span
                             onClick={() => {
-                                // removeLike(post._id);
+                                removeLike(post._id);
                             }}
                             className="post__like"
                         >
-                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <i className="fa fa-heart" aria-hidden="true"></i>
                         </span>
                     ) : (
                         <span
@@ -45,7 +45,10 @@ export function Post({ post }) {
                     )}
                     {isBookmarked(post._id) ? (
                         <span className="post__bookmark">
-                            <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            <i
+                                className="fa fa-bookmark"
+                                aria-hidden="true"
+                            ></i>
                         </span>
                     ) : (
                         <span

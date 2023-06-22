@@ -15,17 +15,15 @@ makeServer();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <Router>
-            <AuthProvider>
-                <UsersProvider>
-                    <BookmarksProvider>
-                        <PostsProvider>
-                            <App />
-                        </PostsProvider>
-                    </BookmarksProvider>
-                </UsersProvider>
-            </AuthProvider>
-        </Router>
-    </React.StrictMode>
+    <Router>
+        <AuthProvider>
+            <UsersProvider>
+                <BookmarksProvider>
+                    <PostsProvider>
+                        <App />
+                    </PostsProvider>
+                </BookmarksProvider>
+            </UsersProvider>
+        </AuthProvider>
+    </Router>
 );

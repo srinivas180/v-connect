@@ -1,9 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { AuthContext } from "./AuthContext";
 
 export const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
     const [users, setUsers] = useState();
+    const { encodedToken, setLoggedInUser } = useContext(AuthContext);
 
     const fetchUsers = async () => {
         const response = await fetch("api/users");
@@ -15,12 +17,32 @@ export function UsersProvider({ children }) {
         }
     };
 
-    const getNonFollowingUsers = (user) => {
-        return users?.filter(
-            ({ username }) =>
-                !user.following.includes(username) &&
-                !(user.username === username)
-        );
+    const followUser = async (followUserId) => {
+        const response = await fetch(`/api/users/follow/${followUserId}`, {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: {},
+        });
+
+        console.log("follow users response", response);
+
+        if (response.status === 200) {
+            const { followUser, user } = await response.json();
+
+            setLoggedInUser(user);
+
+            console.log(user);
+
+            setUsers((users) =>
+                users.map((currentUser) => {
+                    if (user.username === currentUser.username) {
+                        return user;
+                    } else {
+                        return currentUser;
+                    }
+                })
+            );
+        }
     };
 
     useEffect(() => {
@@ -28,7 +50,7 @@ export function UsersProvider({ children }) {
     }, []);
 
     return (
-        <UsersContext.Provider value={{ users, getNonFollowingUsers }}>
+        <UsersContext.Provider value={{ users, followUser }}>
             {children}
         </UsersContext.Provider>
     );

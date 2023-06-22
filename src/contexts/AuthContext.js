@@ -27,7 +27,12 @@ export function AuthProvider({ children }) {
 
     return (
         <AuthContext.Provider
-            value={{ encodedToken, loggedInUser, loginHandler }}
+            value={{
+                encodedToken,
+                loggedInUser,
+                loginHandler,
+                setLoggedInUser,
+            }}
         >
             {children}
         </AuthContext.Provider>

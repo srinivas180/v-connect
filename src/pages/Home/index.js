@@ -6,11 +6,11 @@ import { Header } from "../../components/Header";
 import { Post } from "../../components/Post";
 import "./index.css";
 import { UsersContext } from "../../contexts/UsersContext";
+import { Suggestions } from "../../components/Suggestions";
 
 export function Home() {
     const { posts } = useContext(PostsContext);
     const { loggedInUser } = useContext(AuthContext);
-    const { users, followUser } = useContext(UsersContext);
 
     return (
         <div className="container">
@@ -35,44 +35,7 @@ export function Home() {
             </div>
             <div className="search-and-suggestions">
                 <input type="search" placeholder="Search for users" />
-                <div className="suggestions">
-                    <h3 className="suggestions__title"> Who to follow</h3>
-                    <div className="suggestions_list">
-                        {users
-                            ?.filter(
-                                ({ username }) =>
-                                    !loggedInUser.following.find(
-                                        (followingUser) =>
-                                            username === followingUser.username
-                                    ) && !(loggedInUser.username === username)
-                            )
-                            ?.map((user) => (
-                                <div
-                                    key={user._id}
-                                    className="suggestions__item"
-                                >
-                                    <div className="avatar-and-name">
-                                        <img
-                                            className="suggestions__avatar"
-                                            src={user.profileImageURL}
-                                        />
-                                        <div className="suggestions__user">
-                                            <p>{user.firstName}</p>
-                                            <p>@{user.username}</p>
-                                        </div>
-                                    </div>
-                                    <button
-                                        className="suggestions__follow-btn button button--secondary"
-                                        onClick={() => {
-                                            followUser(user._id);
-                                        }}
-                                    >
-                                        Follow
-                                    </button>
-                                </div>
-                            ))}
-                    </div>
-                </div>
+                <Suggestions />
             </div>
         </div>
     );

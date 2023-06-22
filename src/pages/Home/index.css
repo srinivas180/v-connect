@@ -27,6 +27,9 @@
     display: flex;
     gap: 12px;
 }
+.search-and-suggestions {
+    width: 30%;
+}
 
 .suggestions__avatar {
     width: 50px;

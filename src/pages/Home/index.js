@@ -33,7 +33,7 @@ export function Home() {
                         <Post key={post._id} post={post} />
                     ))}
             </div>
-            <div>
+            <div className="search-and-suggestions">
                 <input type="search" placeholder="Search for users" />
                 <div className="suggestions">
                     <h3 className="suggestions__title"> Who to follow</h3>

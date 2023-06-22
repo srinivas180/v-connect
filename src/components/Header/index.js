@@ -11,13 +11,16 @@ export function Header() {
                 </Link>
             </div>
             <nav className="nav">
-                <NavLink className="nav__link link link--decor-none">
+                <NavLink to="/" className="nav__link link link--decor-none">
                     Home
                 </NavLink>
                 <NavLink className="nav__link link link--decor-none">
                     Explore
                 </NavLink>
-                <NavLink className="nav__link link link--decor-none">
+                <NavLink
+                    to="/bookmarks"
+                    className="nav__link link link--decor-none"
+                >
                     Bookmarks
                 </NavLink>
                 <NavLink className="nav__link link link--decor-none">

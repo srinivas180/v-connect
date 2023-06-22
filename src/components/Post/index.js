@@ -8,7 +8,8 @@ import "./index.css";
 export function Post({ post }) {
     const { users } = useContext(UsersContext);
     const { likePost, isLiked, removeLike } = useContext(PostsContext);
-    const { bookmarkPost, isBookmarked } = useContext(BookmarksContext);
+    const { bookmarkPost, isBookmarked, removeBookmark } =
+        useContext(BookmarksContext);
 
     const user = users.find(({ username }) => username === post.username);
 
@@ -44,7 +45,12 @@ export function Post({ post }) {
                         </span>
                     )}
                     {isBookmarked(post._id) ? (
-                        <span className="post__bookmark">
+                        <span
+                            className="post__bookmark"
+                            onClick={() => {
+                                removeBookmark(post._id);
+                            }}
+                        >
                             <i
                                 className="fa fa-bookmark"
                                 aria-hidden="true"

@@ -25,11 +25,25 @@ export function BookmarksProvider({ children }) {
 
     const isBookmarked = (postId) => bookmarks.includes(postId);
 
+    const removeBookmark = async (postId) => {
+        const response = await fetch(`/api/users/remove-bookmark/${postId}`, {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: {},
+        });
+
+        if (response.status === 200) {
+            const json = await response.json();
+
+            setBookmarks(json.bookmarks);
+        }
+    };
+
     console.log("bookmarks", bookmarks);
 
     return (
         <BookmarksContext.Provider
-            value={{ bookmarks, bookmarkPost, isBookmarked }}
+            value={{ bookmarks, bookmarkPost, isBookmarked, removeBookmark }}
         >
             {children}
         </BookmarksContext.Provider>

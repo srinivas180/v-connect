@@ -1,0 +1,20 @@
+.new-post__textarea {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.new-post__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.new-post__icons {
+    display: flex;
+    gap: 12px;
+}
+
+.new-post__post-btn {
+    padding: 8px 18px;
+}

@@ -7,6 +7,7 @@ import { Post } from "../../components/Post";
 import "./index.css";
 import { UsersContext } from "../../contexts/UsersContext";
 import { Suggestions } from "../../components/Suggestions";
+import { NewPost } from "../../components/NewPost";
 
 export function Home() {
     const { posts } = useContext(PostsContext);
@@ -17,6 +18,7 @@ export function Home() {
             <Header />
             <div className="posts">
                 <h2 className="heading">Home</h2>
+                <NewPost />
                 {posts
                     ?.filter(({ username }) => {
                         // filter and then show logged in user and

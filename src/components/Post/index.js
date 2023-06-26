@@ -71,6 +71,17 @@ export function Post({ post }) {
                     )}
                 </div>
             </div>
+            <div className="post-menu-container">
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                <ul className="menu">
+                    <li className="menu__item">
+                        <button>Edit</button>
+                    </li>
+                    <li className="menu__item">
+                        <button>Delete</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 }

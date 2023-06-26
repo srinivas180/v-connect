@@ -1,4 +1,5 @@
 .post {
+    position: relative;
     display: flex;
     gap: 20px;
     margin-bottom: 24px;
@@ -36,4 +37,51 @@
 .post__like,
 .post__bookmark {
     cursor: pointer;
+}
+
+.post-menu-container {
+    position: absolute;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 4px;
+    padding: 0px 6px;
+    right: 0;
+    top: 0px;
+}
+
+.post-menu-container:hover {
+    background-color: #dbdbdb;
+}
+
+.menu {
+    position: absolute;
+    right: -29px;
+    top: 0px;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: white;
+    list-style-type: none;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.post-menu-container:hover .menu {
+    display: flex;
+}
+
+.menu__item button {
+    width: 100%;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.menu__item button:hover {
+    background-color: #dbdbdb;
 }

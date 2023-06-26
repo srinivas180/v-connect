@@ -9,7 +9,8 @@ import "./index.css";
 export function Post({ post }) {
     const { loggedInUser } = useContext(AuthContext);
     const { users } = useContext(UsersContext);
-    const { likePost, isLiked, removeLike } = useContext(PostsContext);
+    const { likePost, isLiked, removeLike, deletePost } =
+        useContext(PostsContext);
     const { bookmarkPost, isBookmarked, removeBookmark } =
         useContext(BookmarksContext);
 
@@ -75,13 +76,20 @@ export function Post({ post }) {
             </div>
             {loggedInUser.username === post.username ? (
                 <div className="post-menu-container">
-                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
                     <ul className="menu">
                         <li className="menu__item">
                             <button>Edit</button>
                         </li>
                         <li className="menu__item">
-                            <button>Delete</button>
+                            <button
+                                onClick={() => {
+                                    removeBookmark(post._id);
+                                    deletePost(post._id);
+                                }}
+                            >
+                                Delete
+                            </button>
                         </li>
                     </ul>
                 </div>

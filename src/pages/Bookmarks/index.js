@@ -19,7 +19,7 @@ export function Bookmarks() {
                     const post = posts.find(
                         (post) => post._id === bookmarkPostId
                     );
-                    return <Post post={post} />;
+                    return <Post key={post._id} post={post} />;
                 })}
             </div>
             <div className="search-and-suggestions">

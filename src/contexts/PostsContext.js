@@ -58,12 +58,27 @@ export function PostsProvider({ children }) {
         }
     };
 
+    const deletePost = async (postId) => {
+        const response = await fetch(`/api/posts/${postId}`, {
+            method: "DELETE",
+            headers: { authorization: encodedToken },
+            body: {},
+        });
+
+        if (response.status === 201) {
+            const json = await response.json();
+            setPosts(json.posts);
+        }
+    };
+
     useEffect(() => {
         getPosts();
     }, []);
 
     return (
-        <PostsContext.Provider value={{ posts, likePost, isLiked, removeLike }}>
+        <PostsContext.Provider
+            value={{ posts, likePost, isLiked, removeLike, deletePost }}
+        >
             {children}
         </PostsContext.Provider>
     );

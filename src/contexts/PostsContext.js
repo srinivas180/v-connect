@@ -84,6 +84,21 @@ export function PostsProvider({ children }) {
         }
     };
 
+    const editPost = async (post) => {
+        const response = await fetch(`/api/posts/edit/${post._id}`, {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: JSON.stringify({ postData: post }),
+        });
+
+        console.log(response.status);
+
+        if (response.status === 201) {
+            const json = await response.json();
+            setPosts(json.posts);
+        }
+    };
+
     useEffect(() => {
         getPosts();
     }, []);
@@ -97,6 +112,7 @@ export function PostsProvider({ children }) {
                 removeLike,
                 deletePost,
                 addPost,
+                editPost,
             }}
         >
             {children}

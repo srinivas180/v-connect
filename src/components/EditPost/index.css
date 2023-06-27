@@ -1,0 +1,39 @@
+.modal-container {
+    position: fixed;
+    z-index: 1;
+    inset: 0px;
+}
+
+.modal {
+    padding: 36px;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.edit-post__textarea {
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 18px;
+}
+
+.edit-post__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.edit-post__post-btn {
+    padding: 8px 18px;
+}

@@ -71,13 +71,33 @@ export function PostsProvider({ children }) {
         }
     };
 
+    const addPost = async (post) => {
+        const response = await fetch("/api/posts", {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: JSON.stringify({ postData: post }),
+        });
+
+        if (response.status === 201) {
+            const json = await response.json();
+            setPosts(json.posts);
+        }
+    };
+
     useEffect(() => {
         getPosts();
     }, []);
 
     return (
         <PostsContext.Provider
-            value={{ posts, likePost, isLiked, removeLike, deletePost }}
+            value={{
+                posts,
+                likePost,
+                isLiked,
+                removeLike,
+                deletePost,
+                addPost,
+            }}
         >
             {children}
         </PostsContext.Provider>

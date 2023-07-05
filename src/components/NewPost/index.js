@@ -31,7 +31,11 @@ export function NewPost() {
                     }}
                 />
                 <div className="new-post__options">
-                    <div className="new-post__icons"></div>
+                    <div className="new-post__icons">
+                        <i className="bi bi-card-image"></i>
+                        <i className="bi bi-filetype-gif"></i>
+                        <i className="bi bi-emoji-smile"></i>
+                    </div>
                     <button
                         className="new-post__post-btn button button--primary"
                         onClick={() => {

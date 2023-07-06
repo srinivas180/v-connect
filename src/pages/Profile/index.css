@@ -1,0 +1,127 @@
+.profile__bg-img-avatar {
+    position: relative;
+    height: 250px;
+}
+
+.profile__background-image {
+    width: -webkit-fill-available;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.profile__avatar {
+    width: 20%;
+    background-color: white;
+    position: absolute;
+    left: 18px;
+    bottom: 0px;
+    border-radius: 50%;
+}
+
+.profile__edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 4px 8px;
+}
+
+.profile__name {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.profile__username {
+    margin-top: 0px;
+    margin-bottom: 4px;
+    color: #000000ad;
+}
+
+.profile__bio {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.profile__metadata {
+    display: flex;
+    gap: 16px;
+}
+
+.profile__count {
+    font-weight: 600;
+}
+
+.edit-profile__edit-avatar {
+    position: relative;
+    width: fit-content;
+}
+
+.edit-profile__avatar-container {
+    position: relative;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.edit-avatar-options {
+    position: absolute;
+    top: -38px;
+    left: 70px;
+    border: 1px solid #b4b4b4;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: white;
+}
+
+.select-avatar-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.default-avatars {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.default-avatar {
+    width: 40px;
+    cursor: pointer;
+}
+
+.edit-profile__avatar {
+    width: 50px;
+    border-radius: 28px;
+}
+
+.edit-profile__edit-icon {
+    position: absolute;
+    bottom: 2px;
+    right: -2px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.edit-profile__textarea {
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.portfolio-url-input {
+    margin-left: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid;
+}
+
+.edit-profile__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.edit-profile__profile-btn {
+    padding: 8px 18px;
+}

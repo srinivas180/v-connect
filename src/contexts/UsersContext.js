@@ -12,7 +12,6 @@ export function UsersProvider({ children }) {
 
         if (response.status === 200) {
             const json = await response.json();
-            console.log(json);
             setUsers(json.users);
         }
     };
@@ -24,14 +23,10 @@ export function UsersProvider({ children }) {
             body: {},
         });
 
-        console.log("follow users response", response);
-
         if (response.status === 200) {
             const { followUser, user } = await response.json();
 
             setLoggedInUser(user);
-
-            console.log(user);
 
             setUsers((users) =>
                 users.map((currentUser) => {
@@ -45,12 +40,40 @@ export function UsersProvider({ children }) {
         }
     };
 
+    const editLoggedInUser = async (editedUser) => {
+        const response = await fetch("/api/users/edit", {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: JSON.stringify({ userData: editedUser }),
+        });
+
+        if (response.status === 201) {
+            const { user } = await response.json();
+
+            setLoggedInUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
+
+            setUsers((users) =>
+                users.map((currentUser) =>
+                    currentUser.username === user.username ? user : currentUser
+                )
+            );
+        }
+    };
+
+    const getUserByUsername = (username) => {
+        const user = users.find((user) => username === user.username);
+        return user;
+    };
+
     useEffect(() => {
         fetchUsers();
     }, []);
 
     return (
-        <UsersContext.Provider value={{ users, followUser }}>
+        <UsersContext.Provider
+            value={{ users, followUser, editLoggedInUser, getUserByUsername }}
+        >
             {children}
         </UsersContext.Provider>
     );

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { UsersContext } from "../../contexts/UsersContext";
@@ -21,16 +22,21 @@ export function Suggestions() {
                     )
                     ?.map((user) => (
                         <div key={user._id} className="suggestions__item">
-                            <div className="avatar-and-name">
-                                <img
-                                    className="suggestions__avatar"
-                                    src={user.profileImageURL}
-                                />
-                                <div className="suggestions__user">
-                                    <p>{user.firstName}</p>
-                                    <p>@{user.username}</p>
+                            <Link
+                                to={`/profile/${user.username}`}
+                                className="link link--decor-none"
+                            >
+                                <div className="avatar-and-name">
+                                    <img
+                                        className="suggestions__avatar"
+                                        src={user.profileImageURL}
+                                    />
+                                    <div className="suggestions__user">
+                                        <p>{user.firstName}</p>
+                                        <p>@{user.username}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                             <button
                                 className="suggestions__follow-btn button button--secondary"
                                 onClick={() => {

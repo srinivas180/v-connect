@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 import "./index.css";
 
 export function Header() {
+    const { loggedInUser } = useContext(AuthContext);
+
     return (
         <header className="header">
             <div className="logo">
@@ -26,7 +31,10 @@ export function Header() {
                 >
                     Bookmarks
                 </NavLink>
-                <NavLink className="nav__link link link--decor-none">
+                <NavLink
+                    to={`/profile/${loggedInUser.username}`}
+                    className="nav__link link link--decor-none"
+                >
                     Profile
                 </NavLink>
             </nav>

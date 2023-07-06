@@ -13,6 +13,18 @@ export function UsersProvider({ children }) {
         if (response.status === 200) {
             const json = await response.json();
             setUsers(json.users);
+
+            // sets the stored user data in users state
+            const storedUser = JSON.parse(localStorage.getItem("user"));
+            if (storedUser != null && storedUser != undefined) {
+                setUsers((users) => {
+                    return users.map((user) =>
+                        user.username === storedUser.username
+                            ? storedUser
+                            : user
+                    );
+                });
+            }
         }
     };
 

@@ -5,7 +5,8 @@ export const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
     const [users, setUsers] = useState();
-    const { encodedToken, setLoggedInUser } = useContext(AuthContext);
+    const { encodedToken, loggedInUser, setLoggedInUser } =
+        useContext(AuthContext);
 
     const fetchUsers = async () => {
         const response = await fetch("api/users");
@@ -30,6 +31,30 @@ export function UsersProvider({ children }) {
 
     const followUser = async (followUserId) => {
         const response = await fetch(`/api/users/follow/${followUserId}`, {
+            method: "POST",
+            headers: { authorization: encodedToken },
+            body: {},
+        });
+
+        if (response.status === 200) {
+            const { followUser, user } = await response.json();
+
+            setLoggedInUser(user);
+
+            setUsers((users) =>
+                users.map((currentUser) => {
+                    if (user.username === currentUser.username) {
+                        return user;
+                    } else {
+                        return currentUser;
+                    }
+                })
+            );
+        }
+    };
+
+    const unfollowUser = async (unfollowUserId) => {
+        const response = await fetch(`/api/users/unfollow/${unfollowUserId}`, {
             method: "POST",
             headers: { authorization: encodedToken },
             body: {},
@@ -78,13 +103,26 @@ export function UsersProvider({ children }) {
         return user;
     };
 
+    const isFollowing = (userId) => {
+        return loggedInUser.following.some(
+            (followingUser) => followingUser._id === userId
+        );
+    };
+
     useEffect(() => {
         fetchUsers();
     }, []);
 
     return (
         <UsersContext.Provider
-            value={{ users, followUser, editLoggedInUser, getUserByUsername }}
+            value={{
+                users,
+                followUser,
+                unfollowUser,
+                isFollowing,
+                editLoggedInUser,
+                getUserByUsername,
+            }}
         >
             {children}
         </UsersContext.Provider>

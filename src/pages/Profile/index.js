@@ -14,7 +14,13 @@ import "./index.css";
 export function Profile() {
     const { posts } = useContext(PostsContext);
     const { loggedInUser } = useContext(AuthContext);
-    const { editLoggedInUser, getUserByUsername } = useContext(UsersContext);
+    const {
+        editLoggedInUser,
+        getUserByUsername,
+        followUser,
+        unfollowUser,
+        isFollowing,
+    } = useContext(UsersContext);
 
     const { username } = useParams();
     const [user, setUser] = useState();
@@ -62,12 +68,25 @@ export function Profile() {
                             className="profile__avatar"
                             src={user.profileImageURL}
                         />
-                        <button
-                            className="profile__edit button button--secondary"
-                            onClick={() => setShowEditProfileDialog(true)}
-                        >
-                            Edit Profile
-                        </button>
+                        {user.username === loggedInUser.username ? (
+                            <button
+                                className="profile__btn button button--secondary"
+                                onClick={() => setShowEditProfileDialog(true)}
+                            >
+                                Edit Profile
+                            </button>
+                        ) : (
+                            <button
+                                className="profile__btn button button--secondary"
+                                onClick={() => {
+                                    isFollowing(user._id)
+                                        ? unfollowUser(user._id)
+                                        : followUser(user._id);
+                                }}
+                            >
+                                {isFollowing(user._id) ? "Unfollow" : "Follow"}
+                            </button>
+                        )}
                     </div>
                     <p className="profile__name">
                         {user.firstName} {user.lastName}

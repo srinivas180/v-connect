@@ -42,6 +42,12 @@ export function Profile() {
         setUser(getUserByUsername(username));
     }, [username]);
 
+    useEffect(() => {
+        if (username === loggedInUser.username) {
+            setUser(getUserByUsername(username));
+        }
+    }, [loggedInUser]);
+
     return user != undefined ? (
         <div className="container">
             <Header />

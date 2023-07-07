@@ -15,9 +15,9 @@ export function Bookmarks() {
             <Header />
             <div className="posts">
                 <h2 className="heading">Bookmarks</h2>
-                {bookmarks.map((bookmarkPostId) => {
+                {bookmarks.map((bookmark) => {
                     const post = posts.find(
-                        (post) => post._id === bookmarkPostId
+                        (post) => post._id === bookmark._id
                     );
                     return <Post key={post._id} post={post} />;
                 })}

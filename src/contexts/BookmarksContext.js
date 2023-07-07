@@ -23,7 +23,8 @@ export function BookmarksProvider({ children }) {
         }
     };
 
-    const isBookmarked = (postId) => bookmarks.includes(postId);
+    const isBookmarked = (postId) =>
+        bookmarks.some((bookmark) => postId === bookmark._id);
 
     const removeBookmark = async (postId) => {
         const response = await fetch(`/api/users/remove-bookmark/${postId}`, {

@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -9,6 +10,8 @@ export function AuthProvider({ children }) {
     const [loggedInUser, setLoggedInUser] = useState(
         JSON.parse(localStorage.getItem("user"))
     );
+
+    const navigate = useNavigate();
 
     const loginHandler = async (userCredentials) => {
         const response = await fetch("/api/auth/login", {
@@ -23,6 +26,7 @@ export function AuthProvider({ children }) {
 
         localStorage.setItem("encodedToken", encodedToken);
         localStorage.setItem("user", JSON.stringify(foundUser));
+        navigate("/");
     };
 
     const signupHandler = async (userDetails) => {

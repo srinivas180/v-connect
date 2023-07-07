@@ -11,41 +11,47 @@ export function NewPost() {
 
     return (
         <div className="post">
-            <div>
-                <img
-                    className="post__profile-img"
-                    src={loggedInUser.profileImageURL}
-                />
-            </div>
-            <div>
-                <textarea
-                    className="new-post__textarea"
-                    rows="10"
-                    cols="50"
-                    placeholder="What's happening"
-                    onChange={(event) => {
-                        setNewPostData((newPostData) => ({
-                            ...newPostData,
-                            content: event.target.value,
-                        }));
-                    }}
-                />
-                <div className="new-post__options">
-                    <div className="new-post__icons">
-                        <i className="bi bi-card-image"></i>
-                        <i className="bi bi-filetype-gif"></i>
-                        <i className="bi bi-emoji-smile"></i>
+            {loggedInUser !== undefined && loggedInUser !== null ? (
+                <>
+                    <div>
+                        <img
+                            className="post__profile-img"
+                            src={loggedInUser.profileImageURL}
+                        />
                     </div>
-                    <button
-                        className="new-post__post-btn button button--primary"
-                        onClick={() => {
-                            addPost(newPostData);
-                        }}
-                    >
-                        post
-                    </button>
-                </div>
-            </div>
+                    <div>
+                        <textarea
+                            className="new-post__textarea"
+                            rows="10"
+                            cols="50"
+                            placeholder="What's happening"
+                            onChange={(event) => {
+                                setNewPostData((newPostData) => ({
+                                    ...newPostData,
+                                    content: event.target.value,
+                                }));
+                            }}
+                        />
+                        <div className="new-post__options">
+                            <div className="new-post__icons">
+                                <i className="bi bi-card-image"></i>
+                                <i className="bi bi-filetype-gif"></i>
+                                <i className="bi bi-emoji-smile"></i>
+                            </div>
+                            <button
+                                className="new-post__post-btn button button--primary"
+                                onClick={() => {
+                                    addPost(newPostData);
+                                }}
+                            >
+                                post
+                            </button>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                ""
+            )}
         </div>
     );
 }

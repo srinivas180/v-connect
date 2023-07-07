@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { PostsContext } from "../../contexts/PostsContext";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -12,6 +13,14 @@ import { NewPost } from "../../components/NewPost";
 export function Home() {
     const { posts } = useContext(PostsContext);
     const { loggedInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (loggedInUser === null || loggedInUser === undefined) {
+            console.log("navigating........");
+            navigate("/login");
+        }
+    }, []);
 
     return (
         <div className="container">

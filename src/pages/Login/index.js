@@ -1,22 +1,36 @@
 import "./index.css";
 
 import { AuthContext } from "../../contexts/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export function Login() {
     const { loginHandler } = useContext(AuthContext);
+    const [userCreds, setUserCreds] = useState({ username: "", password: "" });
     return (
         <div className="form-container">
             <h2 className="form-container__title">Login</h2>
-            <form className="form">
+            <form
+                className="form"
+                onSubmit={(event) => {
+                    event.preventDefault();
+                    loginHandler(userCreds);
+                }}
+            >
                 <div className="form__field">
-                    <label for="username" className="form__label">
+                    <label htmlFor="username" className="form__label">
                         Username
                     </label>
                     <input
                         name="username"
                         type="text"
                         required
+                        value={userCreds.username}
+                        onChange={(event) => {
+                            setUserCreds((prevUserCreds) => ({
+                                ...prevUserCreds,
+                                username: event.target.value,
+                            }));
+                        }}
                         className="form__input"
                     />
                 </div>
@@ -36,6 +50,13 @@ export function Login() {
                         name="password"
                         type="password"
                         required
+                        value={userCreds.password}
+                        onChange={(event) => {
+                            setUserCreds((prevUserCreds) => ({
+                                ...prevUserCreds,
+                                password: event.target.value,
+                            }));
+                        }}
                         className="form__input"
                     />
                 </div>

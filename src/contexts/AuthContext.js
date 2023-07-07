@@ -25,12 +25,30 @@ export function AuthProvider({ children }) {
         localStorage.setItem("user", JSON.stringify(foundUser));
     };
 
+    const signupHandler = async (userDetails) => {
+        const response = await fetch("/api/auth/signup", {
+            method: "POST",
+            body: JSON.stringify(userDetails),
+        });
+
+        if (response.status === 201) {
+            const { encodedToken, createdUser } = await response.json();
+
+            setEncodedToken(encodedToken);
+            setLoggedInUser(createdUser);
+
+            // localStorage.setItem("encodedToken", encodedToken);
+            // localStorage.setItem("user", JSON.stringify(createdUser));
+        }
+    };
+
     return (
         <AuthContext.Provider
             value={{
                 encodedToken,
                 loggedInUser,
                 loginHandler,
+                signupHandler,
                 setLoggedInUser,
             }}
         >

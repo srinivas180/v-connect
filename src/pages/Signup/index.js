@@ -1,19 +1,66 @@
+import { useState, useContext } from "react";
+
+import { AuthContext } from "../../contexts/AuthContext";
 import "./index.css";
 
 export function Signup() {
+    const { signupHandler } = useContext(AuthContext);
+    const [userDetails, setUserDetails] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        password: "",
+        bio: "",
+        profileImageURL: "",
+        portfolioURL: "",
+    });
+
     return (
         <div className="form-container">
             <h2 className="form-container__title">Signup</h2>
-            <form className="form">
+            <form
+                className="form"
+                onSubmit={(event) => {
+                    event.preventDefault();
+
+                    signupHandler(userDetails);
+                }}
+            >
                 <div className="form__field">
-                    <label for="fullname" className="form__label">
-                        Full Name
+                    <label htmlFor="firstName" className="form__label">
+                        First Name
                     </label>
                     <input
-                        name="fullname"
+                        name="firstName"
                         type="text"
                         required
                         className="form__input"
+                        value={userDetails.firstName}
+                        onChange={(event) => {
+                            setUserDetails((prevUserDetails) => ({
+                                ...prevUserDetails,
+                                firstName: event.target.value,
+                            }));
+                        }}
+                    />
+                </div>
+
+                <div className="form__field">
+                    <label htmlFor="lastName" className="form__label">
+                        Last Name
+                    </label>
+                    <input
+                        name="lastName"
+                        type="text"
+                        required
+                        className="form__input"
+                        value={userDetails.lastName}
+                        onChange={(event) => {
+                            setUserDetails((prevUserDetails) => ({
+                                ...prevUserDetails,
+                                lastName: event.target.value,
+                            }));
+                        }}
                     />
                 </div>
 
@@ -26,18 +73,13 @@ export function Signup() {
                         type="text"
                         required
                         className="form__input"
-                    />
-                </div>
-
-                <div className="form__field">
-                    <label for="email" className="form__label">
-                        Email address
-                    </label>
-                    <input
-                        name="email"
-                        type="email"
-                        required
-                        className="form__input"
+                        value={userDetails.username}
+                        onChange={(event) => {
+                            setUserDetails((prevUserDetails) => ({
+                                ...prevUserDetails,
+                                username: event.target.value,
+                            }));
+                        }}
                     />
                 </div>
 
@@ -51,6 +93,13 @@ export function Signup() {
                         type="password"
                         required
                         className="form__input"
+                        value={userDetails.password}
+                        onChange={(event) => {
+                            setUserDetails((prevUserDetails) => ({
+                                ...prevUserDetails,
+                                password: event.target.value,
+                            }));
+                        }}
                     />
                 </div>
 

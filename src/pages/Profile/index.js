@@ -214,19 +214,24 @@ export function Profile() {
                             </div>
                         </div>
                         <div>
-                            <textarea
-                                className="edit-profile__textarea"
-                                rows="10"
-                                cols="75"
-                                placeholder="What's happening"
-                                value={editProfileData.bio}
-                                onChange={(event) => {
-                                    setEditProfileData((editProfileData) => ({
-                                        ...editProfileData,
-                                        bio: event.target.value,
-                                    }));
-                                }}
-                            />
+                            <div className="edit-profile__bio">
+                                <span>Bio</span>
+                                <textarea
+                                    className="edit-profile__textarea"
+                                    rows="10"
+                                    cols="70"
+                                    placeholder="What's happening"
+                                    value={editProfileData.bio}
+                                    onChange={(event) => {
+                                        setEditProfileData(
+                                            (editProfileData) => ({
+                                                ...editProfileData,
+                                                bio: event.target.value,
+                                            })
+                                        );
+                                    }}
+                                />
+                            </div>
                             <div>
                                 <label>
                                     Portfolio URL{" "}

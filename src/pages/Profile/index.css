@@ -101,11 +101,15 @@
     border-radius: 8px;
 }
 
+.edit-profile__bio {
+    display: flex;
+    gap: 12px;
+    margin: 18px 0;
+}
+
 .edit-profile__textarea {
     padding: 12px;
     border-radius: 12px;
-    margin-top: 18px;
-    margin-bottom: 18px;
 }
 
 .portfolio-url-input {

@@ -21,6 +21,22 @@
     border-radius: 12px;
 }
 
+.profile__header {
+    display: flex;
+    gap: 12px;
+}
+
+.profile__header-data {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+}
+
+.profile__username {
+    color: var(--gray-500);
+}
+
 .edit-post__textarea {
     padding: 12px;
     border-radius: 12px;

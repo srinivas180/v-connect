@@ -13,11 +13,19 @@ export function EditPost({ post, setShowEditDialog }) {
         <div className="modal-container">
             <div className="modal">
                 <div className="edit-post">
-                    <div>
+                    <div className="profile__header">
                         <img
                             className="post__profile-img"
                             src={loggedInUser.profileImageURL}
                         />
+                        <div className="profile__header-data">
+                            <span>
+                                {loggedInUser.firstName} {loggedInUser.lastName}
+                            </span>
+                            <span className="profile__username">
+                                @{loggedInUser.username}
+                            </span>
+                        </div>
                     </div>
                     <div>
                         <textarea

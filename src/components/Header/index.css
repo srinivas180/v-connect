@@ -1,5 +1,10 @@
 .header {
+    width: -moz-fit-content;
     width: fit-content;
+    position: sticky;
+    top: 20px;
+    bottom: 0;
+    height: 1vh;
 }
 
 .logo {

@@ -10,6 +10,10 @@
     border-radius: 28px;
 }
 
+.post__container {
+    width: -webkit-fill-available;
+}
+
 .post__name {
     margin: 0;
     font-weight: 600;

@@ -14,7 +14,7 @@ export const users = [
         bio: "Aspiring Frontend Developer",
         profileImageURL:
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687152698/v-connect/profile-images/23_ghzzzi.jpg",
-        portfolioURL: "",
+        portfolioURL: "https://example.com",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         following: [],
@@ -30,7 +30,7 @@ export const users = [
         bio: "physicist & cosmologist,",
         profileImageURL:
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
-        portfolioURL: "",
+        portfolioURL: "https://example.com",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         following: [],
@@ -46,7 +46,7 @@ export const users = [
         bio: "Actor. Producer. Running in movies since 1981.",
         profileImageURL:
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/tomcruise_r8drdm.jpg",
-        portfolioURL: "",
+        portfolioURL: "https://example.com",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         following: [],
@@ -62,7 +62,7 @@ export const users = [
         bio: "CEO of Wayne Enterprises",
         profileImageURL:
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/batman_ztw6hs.jpg",
-        portfolioURL: "",
+        portfolioURL: "https://example.com",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         following: [],
@@ -78,7 +78,7 @@ export const users = [
         bio: "Actor in Indian Telugu Cinema",
         profileImageURL:
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/mahesh-babu_ymw0uz.jpg",
-        portfolioURL: "",
+        portfolioURL: "https://example.com",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         following: [],

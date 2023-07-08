@@ -30,9 +30,13 @@ export function Post({ post }) {
                 <div className="post__container">
                     <p className="post__name">{user.firstName}</p>
                     <p className="post__content">{post.content}</p>
-                    <div>
-                        <img className="post__image" src={post.imageURL} />
-                    </div>
+                    {post.imageURL !== undefined ? (
+                        <div>
+                            <img className="post__image" src={post.imageURL} />
+                        </div>
+                    ) : (
+                        ""
+                    )}
                     <div className="post__options">
                         {isLiked(post) ? (
                             <span

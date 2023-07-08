@@ -15,12 +15,16 @@ export function Bookmarks() {
             <Header />
             <div className="posts">
                 <h2 className="heading">Bookmarks</h2>
-                {bookmarks.map((bookmark) => {
-                    const post = posts.find(
-                        (post) => post._id === bookmark._id
-                    );
-                    return <Post key={post._id} post={post} />;
-                })}
+                {bookmarks.length === 0 ? (
+                    <span>No Bookmarks Yet</span>
+                ) : (
+                    bookmarks.map((bookmark) => {
+                        const post = posts.find(
+                            (post) => post._id === bookmark._id
+                        );
+                        return <Post key={post._id} post={post} />;
+                    })
+                )}
             </div>
             <div className="search-and-suggestions">
                 <input type="search" placeholder="Search for users" />

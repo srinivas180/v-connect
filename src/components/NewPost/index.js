@@ -10,7 +10,7 @@ export function NewPost() {
     const [newPostData, setNewPostData] = useState();
 
     return (
-        <div className="post">
+        <div className="post new-post">
             {loggedInUser !== undefined && loggedInUser !== null ? (
                 <>
                     <div>

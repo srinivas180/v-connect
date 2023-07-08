@@ -1,3 +1,8 @@
+.new-post {
+    padding-bottom: 24px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
 .new-post__textarea {
     padding: 12px;
     border-radius: 12px;

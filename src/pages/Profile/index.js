@@ -97,8 +97,9 @@ export function Profile() {
                         <a
                             className="profile__bio-link"
                             href={user.portfolioURL}
+                            target="_blank"
                         >
-                            {user.portfolioURL}
+                            More about me
                         </a>
                     </div>
 

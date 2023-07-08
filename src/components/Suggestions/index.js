@@ -6,7 +6,8 @@ import { UsersContext } from "../../contexts/UsersContext";
 
 export function Suggestions() {
     const { loggedInUser } = useContext(AuthContext);
-    const { users, followUser } = useContext(UsersContext);
+    const { users, followUser, unfollowUser, isFollowing } =
+        useContext(UsersContext);
 
     return (
         <div className="suggestions">
@@ -14,11 +15,7 @@ export function Suggestions() {
             <div className="suggestions_list">
                 {users
                     ?.filter(
-                        ({ username }) =>
-                            !loggedInUser.following.find(
-                                (followingUser) =>
-                                    username === followingUser.username
-                            ) && !(loggedInUser.username === username)
+                        ({ username }) => !(loggedInUser.username === username)
                     )
                     ?.map((user) => (
                         <div key={user._id} className="suggestions__item">
@@ -40,10 +37,12 @@ export function Suggestions() {
                             <button
                                 className="suggestions__follow-btn button button--secondary"
                                 onClick={() => {
-                                    followUser(user._id);
+                                    isFollowing(user._id)
+                                        ? unfollowUser(user._id)
+                                        : followUser(user._id);
                                 }}
                             >
-                                Follow
+                                {isFollowing(user._id) ? "Unfollow" : "Follow"}
                             </button>
                         </div>
                     ))}

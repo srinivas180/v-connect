@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import "./index.css";
@@ -124,12 +125,12 @@ export function Signup() {
                 <span className="form-footer__text">
                     Already have account?{" "}
                 </span>
-                <a
-                    href="/login"
+                <Link
+                    to="/login"
                     className="form-footer__link link link--decor-none link--primary-color"
                 >
                     Login
-                </a>
+                </Link>
             </p>
         </div>
     );

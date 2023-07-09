@@ -43,6 +43,10 @@
     cursor: pointer;
 }
 
+.post__like-count {
+    margin-left: 4px;
+}
+
 .post-menu-container {
     position: absolute;
     width: -moz-fit-content;

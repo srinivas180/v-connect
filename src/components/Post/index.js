@@ -49,6 +49,9 @@ export function Post({ post }) {
                                     className="fa fa-heart"
                                     aria-hidden="true"
                                 ></i>
+                                <span className="post__like-count">
+                                    {post.likes.likeCount}
+                                </span>
                             </span>
                         ) : (
                             <span
@@ -61,6 +64,9 @@ export function Post({ post }) {
                                     className="fa fa-heart-o"
                                     aria-hidden="true"
                                 ></i>
+                                <span className="post__like-count">
+                                    {post.likes.likeCount}
+                                </span>
                             </span>
                         )}
                         {isBookmarked(post._id) ? (

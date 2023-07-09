@@ -13,7 +13,7 @@ import "./index.css";
 
 export function Profile() {
     const { posts } = useContext(PostsContext);
-    const { loggedInUser } = useContext(AuthContext);
+    const { loggedInUser, logoutHandler } = useContext(AuthContext);
     const {
         editLoggedInUser,
         getUserByUsername,
@@ -69,12 +69,24 @@ export function Profile() {
                             src={user.profileImageURL}
                         />
                         {user.username === loggedInUser.username ? (
-                            <button
-                                className="profile__btn button button--secondary"
-                                onClick={() => setShowEditProfileDialog(true)}
-                            >
-                                Edit Profile
-                            </button>
+                            <div className="profile__btns">
+                                <button
+                                    className="profile__btn button button--secondary"
+                                    onClick={() =>
+                                        setShowEditProfileDialog(true)
+                                    }
+                                >
+                                    Edit Profile
+                                </button>
+                                <button
+                                    className="profile__btn button button--danger"
+                                    onClick={() => {
+                                        logoutHandler();
+                                    }}
+                                >
+                                    Logout
+                                </button>
+                            </div>
                         ) : (
                             <button
                                 className="profile__btn button button--secondary"

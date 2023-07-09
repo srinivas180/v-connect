@@ -46,6 +46,15 @@ export function AuthProvider({ children }) {
         }
     };
 
+    const logoutHandler = () => {
+        localStorage.clear();
+
+        setEncodedToken(null);
+        setLoggedInUser(null);
+
+        navigate("/login");
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -54,6 +63,7 @@ export function AuthProvider({ children }) {
                 loginHandler,
                 signupHandler,
                 setLoggedInUser,
+                logoutHandler,
             }}
         >
             {children}

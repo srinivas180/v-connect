@@ -18,10 +18,14 @@
     border-radius: 50%;
 }
 
+.profile__btns {
+    display: flex;
+    justify-content: end;
+    gap: 12px;
+    margin-top: 12px;
+}
+
 .profile__btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     padding: 4px 8px;
 }
 

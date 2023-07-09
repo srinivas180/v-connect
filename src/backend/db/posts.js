@@ -14,8 +14,17 @@ export const posts = [
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687154650/v-connect/posts-images/lon--george-monstera-deliciosa_p7shzo.webp",
 
         likes: {
-            likeCount: 0,
-            likedBy: [],
+            likeCount: 1,
+            likedBy: [
+                {
+                    _id: "2",
+                    firstName: "Stephen",
+                    lastName: "Hawking",
+                    username: "stephenhawking",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
+                },
+            ],
             dislikedBy: [],
         },
         username: "satyachandra",
@@ -30,8 +39,17 @@ export const posts = [
         imageURL:
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687154650/v-connect/posts-images/snake-plant_j4m8av.webp",
         likes: {
-            likeCount: 0,
-            likedBy: [],
+            likeCount: 1,
+            likedBy: [
+                {
+                    _id: "2",
+                    firstName: "Stephen",
+                    lastName: "Hawking",
+                    username: "stephenhawking",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
+                },
+            ],
             dislikedBy: [],
         },
         username: "satyachandra",
@@ -47,8 +65,17 @@ export const posts = [
             "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687237203/v-connect/posts-images/mi-dead-reckoning-poster_vgfb4w.webp",
         imageAlt: "mission impossible dead reckoning poster",
         likes: {
-            likeCount: 0,
-            likedBy: [],
+            likeCount: 1,
+            likedBy: [
+                {
+                    _id: "2",
+                    firstName: "Stephen",
+                    lastName: "Hawking",
+                    username: "stephenhawking",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
+                },
+            ],
             dislikedBy: [],
         },
         username: "tomcruise",
@@ -61,8 +88,17 @@ export const posts = [
         content:
             "To all the films in release, to all the studios, and to all the exhibitors: congratulations. To the audience: thank you for venturing out and allowing us to entertain you. See you at the movies.",
         likes: {
-            likeCount: 0,
-            likedBy: [],
+            likeCount: 1,
+            likedBy: [
+                {
+                    _id: "2",
+                    firstName: "Stephen",
+                    lastName: "Hawking",
+                    username: "stephenhawking",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
+                },
+            ],
             dislikedBy: [],
         },
         username: "tomcruise",
@@ -105,8 +141,25 @@ export const posts = [
         _id: uuid(),
         content: "Life in luxury!",
         likes: {
-            likeCount: 0,
-            likedBy: [],
+            likeCount: 2,
+            likedBy: [
+                {
+                    _id: "2",
+                    firstName: "Stephen",
+                    lastName: "Hawking",
+                    username: "stephenhawking",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
+                },
+                {
+                    _id: "3",
+                    firstName: "Tom",
+                    lastName: "Cruise",
+                    username: "tomcruise",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/tomcruise_r8drdm.jpg",
+                },
+            ],
             dislikedBy: [],
         },
         username: "maheshbabu",
@@ -118,8 +171,25 @@ export const posts = [
         _id: uuid(),
         content: "Highly inflammable!",
         likes: {
-            likeCount: 0,
-            likedBy: [],
+            likeCount: 2,
+            likedBy: [
+                {
+                    _id: "2",
+                    firstName: "Stephen",
+                    lastName: "Hawking",
+                    username: "stephenhawking",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/stephen-hawking_cumhzw.jpg",
+                },
+                {
+                    _id: "3",
+                    firstName: "Tom",
+                    lastName: "Cruise",
+                    username: "tomcruise",
+                    profileImageURL:
+                        "https://res.cloudinary.com/dt6nk7xus/image/upload/v1687239299/v-connect/profile-images/tomcruise_r8drdm.jpg",
+                },
+            ],
             dislikedBy: [],
         },
         username: "maheshbabu",

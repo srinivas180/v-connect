@@ -89,16 +89,20 @@ export function Profile() {
                                 </button>
                             </div>
                         ) : (
-                            <button
-                                className="profile__btn button button--secondary"
-                                onClick={() => {
-                                    isFollowing(user._id)
-                                        ? unfollowUser(user._id)
-                                        : followUser(user._id);
-                                }}
-                            >
-                                {isFollowing(user._id) ? "Unfollow" : "Follow"}
-                            </button>
+                            <div className="profile__btns">
+                                <button
+                                    className="profile__btn button button--secondary"
+                                    onClick={() => {
+                                        isFollowing(user._id)
+                                            ? unfollowUser(user._id)
+                                            : followUser(user._id);
+                                    }}
+                                >
+                                    {isFollowing(user._id)
+                                        ? "Unfollow"
+                                        : "Follow"}
+                                </button>
+                            </div>
                         )}
                     </div>
                     <p className="profile__name">

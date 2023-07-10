@@ -7,7 +7,7 @@ import "./index.css";
 export function NewPost() {
     const { loggedInUser } = useContext(AuthContext);
     const { addPost } = useContext(PostsContext);
-    const [newPostData, setNewPostData] = useState();
+    const [newPostData, setNewPostData] = useState({ content: "" });
 
     return (
         <div className="post new-post">
@@ -25,6 +25,7 @@ export function NewPost() {
                             rows="10"
                             cols="50"
                             placeholder="What's happening"
+                            value={newPostData.content}
                             onChange={(event) => {
                                 setNewPostData((newPostData) => ({
                                     ...newPostData,
@@ -42,6 +43,7 @@ export function NewPost() {
                                 className="new-post__post-btn button button--primary"
                                 onClick={() => {
                                     addPost(newPostData);
+                                    setNewPostData({ content: "" });
                                 }}
                             >
                                 post

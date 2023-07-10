@@ -149,7 +149,7 @@ export function Profile() {
                 </div>
 
                 <div>
-                    <h2>Tweets</h2>
+                    <h2>Posts</h2>
                     {posts
                         ?.filter(({ username }) => {
                             // filter and then show logged in user posts

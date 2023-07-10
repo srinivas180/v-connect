@@ -12,7 +12,8 @@ export function Signup() {
         username: "",
         password: "",
         bio: "",
-        profileImageURL: "",
+        profileImageURL:
+            "https://res.cloudinary.com/dt6nk7xus/image/upload/v1688307830/v-connect/default-avatars/user-avatar-filled-svgrepo-com_1_t0m9kf.svg",
         portfolioURL: "",
     });
 

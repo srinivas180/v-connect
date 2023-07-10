@@ -50,7 +50,7 @@ export function Home() {
                 <h2 className="heading">Home</h2>
                 <NewPost />
                 <div className="filters">
-                    <h3>Latest Posts</h3>
+                    <h3>{sortBy} Posts</h3>
                     <div className="filters-options">
                         <div className="filters-btn">
                             <svg

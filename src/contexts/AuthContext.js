@@ -11,6 +11,8 @@ export function AuthProvider({ children }) {
         JSON.parse(localStorage.getItem("user"))
     );
 
+    const [createdUser, setCreatedUser] = useState();
+
     const navigate = useNavigate();
 
     const loginHandler = async (userCredentials) => {
@@ -41,8 +43,11 @@ export function AuthProvider({ children }) {
             setEncodedToken(encodedToken);
             setLoggedInUser(createdUser);
 
-            // localStorage.setItem("encodedToken", encodedToken);
-            // localStorage.setItem("user", JSON.stringify(createdUser));
+            setCreatedUser(createdUser);
+            navigate("/");
+
+            localStorage.setItem("encodedToken", encodedToken);
+            localStorage.setItem("user", JSON.stringify(createdUser));
         }
     };
 
@@ -64,6 +69,7 @@ export function AuthProvider({ children }) {
                 signupHandler,
                 setLoggedInUser,
                 logoutHandler,
+                createdUser,
             }}
         >
             {children}

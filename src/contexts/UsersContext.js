@@ -5,7 +5,7 @@ export const UsersContext = createContext();
 
 export function UsersProvider({ children }) {
     const [users, setUsers] = useState();
-    const { encodedToken, loggedInUser, setLoggedInUser } =
+    const { encodedToken, loggedInUser, setLoggedInUser, createdUser } =
         useContext(AuthContext);
 
     const fetchUsers = async () => {
@@ -111,6 +111,12 @@ export function UsersProvider({ children }) {
     useEffect(() => {
         fetchUsers();
     }, []);
+
+    useEffect(() => {
+        if (users !== undefined) {
+            setUsers((users) => [...users, createdUser]);
+        }
+    }, [createdUser]);
 
     return (
         <UsersContext.Provider

@@ -161,7 +161,11 @@ export function Profile() {
                 </div>
             </div>
             <div className="search-and-suggestions">
-                <input type="search" placeholder="Search for users" />
+                <input
+                    className="search"
+                    type="search"
+                    placeholder="Search for users"
+                />
                 <Suggestions />
             </div>
             <div

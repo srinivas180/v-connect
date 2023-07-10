@@ -79,6 +79,10 @@
     height: 1vh;
 }
 
+.search {
+    display: none;
+}
+
 .suggestions__avatar {
     width: 50px;
     border-radius: 28px;

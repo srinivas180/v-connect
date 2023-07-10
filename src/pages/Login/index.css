@@ -37,6 +37,18 @@
     padding: 8px;
     border-radius: 6px;
     border: 2px solid #d0d0d0;
+    width: -webkit-fill-available;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password__eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 7px;
+    cursor: pointer;
 }
 
 .login__guest {

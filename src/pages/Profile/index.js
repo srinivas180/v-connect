@@ -44,7 +44,6 @@ export function Profile() {
 
     useEffect(() => {
         // change user profile when username changes
-        // update user profile when users changes
         setUser(getUserByUsername(username));
     }, [username]);
 
@@ -52,6 +51,8 @@ export function Profile() {
         if (username === loggedInUser.username) {
             setUser(getUserByUsername(username));
         }
+
+        setEditProfileData(loggedInUser);
     }, [loggedInUser]);
 
     return user != undefined ? (

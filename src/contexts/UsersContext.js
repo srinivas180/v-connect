@@ -88,7 +88,6 @@ export function UsersProvider({ children }) {
             const { user } = await response.json();
 
             setLoggedInUser(user);
-            localStorage.setItem("user", JSON.stringify(user));
 
             setUsers((users) =>
                 users.map((currentUser) =>

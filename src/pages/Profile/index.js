@@ -122,7 +122,15 @@ export function Profile() {
 
                     <div className="profile__metadata">
                         <p>
-                            <span className="profile__count">2000</span> Posts
+                            <span className="profile__count">
+                                {
+                                    posts?.filter(
+                                        ({ username }) =>
+                                            user.username === username
+                                    ).length
+                                }
+                            </span>{" "}
+                            Posts
                         </p>
 
                         <p>
